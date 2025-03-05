@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Press_Start_2P } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
 
 import '@/styles/globals.css';
 
@@ -22,13 +21,10 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${pressStart2p.variable} antialiased pb-12`}
-      >
+      <body className={`${pressStart2p.variable} antialiased pb-12`}>
         <div className="mt-8 md:mt-12 max-w-screen-md mx-auto px-4">
           <main>{children}</main>
         </div>
-        <Analytics />
       </body>
     </html>
   );

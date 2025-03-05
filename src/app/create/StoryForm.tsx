@@ -3,10 +3,6 @@
 import { useActionState } from 'react';
 import { startStory, type StoryFormState } from './startStory';
 
-// set max duration for server action
-// https://www.reddit.com/r/nextjs/comments/1anvdpw/comment/kpv7o4o/
-export const maxDuration = 90;
-
 const defaultFields = {
   character: '',
   plot: '',
