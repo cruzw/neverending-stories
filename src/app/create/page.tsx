@@ -3,11 +3,9 @@ import { redirect } from 'next/navigation';
 import StoryForm from './StoryForm';
 
 export default async function CreatePage() {
-  // Check if the user has an API key set
   const cookieStore = await cookies();
   const openAiKey = cookieStore.get('openai_key');
 
-  // Redirect to account page if no API key is found
   if (!openAiKey) {
     redirect('/account');
   }

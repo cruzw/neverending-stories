@@ -7,6 +7,11 @@ import { cookies } from 'next/headers';
 import { BLOB_BASE_URL } from '@/constants';
 import ChapterActionForms from './ChapterActionForms';
 
+// set max duration for server action
+// https://www.reddit.com/r/nextjs/comments/1anvdpw/comment/kpv7o4o/
+export const maxDuration = 90;
+
+
 type ChapterPageProps = {
   params: Promise<{
     storyId: string;
