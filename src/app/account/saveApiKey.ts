@@ -21,7 +21,7 @@ export async function saveApiKey(
     return {
       status: 'error',
       message: 'Please enter an OpenAI API key',
-      apiKey: apiKey // Preserve the input value even if it's empty
+      apiKey
     };
   }
 
@@ -39,11 +39,11 @@ export async function saveApiKey(
       return {
         status: 'error',
         message: 'Invalid API key.',
-        apiKey: apiKey // Preserve the input value on error
+        apiKey
       };
     }
 
-    // Valid key, set cookie
+    // if valid key, set cookie
     const cookieStore = await cookies();
     cookieStore.set('openai_key', apiKey, {
       httpOnly: true,
@@ -61,7 +61,7 @@ export async function saveApiKey(
     return {
       status: 'error',
       message: error instanceof Error ? error.message : 'An unexpected error occurred',
-      apiKey: apiKey // Preserve the input value on error
+      apiKey
     };
   }
 }

@@ -2,6 +2,7 @@
 
 import { useActionState } from 'react';
 import { startStory, type StoryFormState } from './startStory';
+import Link from 'next/link';
 
 const defaultFields = {
   character: '',
@@ -78,7 +79,9 @@ export default function StoryForm() {
         />
       </div>
       {isError && (
-          <div className="text-red-500 text-sm mb-4">{state.message || "An error occurred"}</div>
+        <div className="text-red-500 text-sm mb-4">
+          {state.message || 'An error occurred'}
+        </div>
       )}
       {pending ? (
         <div className="nes-container is-rounded is-dark is-centered">
@@ -86,10 +89,17 @@ export default function StoryForm() {
           <p>new stories can take up to 1 minute to generate.</p>
         </div>
       ) : (
-        <button className="nes-btn is-primary" type="submit" disabled={pending}>
+        <button
+          className="nes-btn is-primary w-full"
+          type="submit"
+          disabled={pending}
+        >
           Create
         </button>
       )}
+      <Link href="/" className="nes-btn w-full mt-4!">
+        Home
+      </Link>
     </form>
   );
 }

@@ -17,11 +17,11 @@ export default async function Home() {
         </h3>
         <div className="flex flex-col gap-4 mt-8">
           {openAiKey && (
-            <Link href="/create" className="nes-btn is-success">
+            <Link href="/create" className="nes-btn is-primary">
               Create Story
             </Link>
           )}
-          <Link href="/account" className="nes-btn is-primary">
+          <Link href="/account" className="nes-btn">
             {openAiKey ? 'Manage Token' : 'Get Started'}
           </Link>
         </div>

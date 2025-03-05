@@ -60,6 +60,9 @@ export default function ApiKeyForm({ initialApiKey }: ApiKeyFormProps) {
           {pending ? 'Saving...' : 'Save'}
         </button>
       )}
+      <Link href="/" className="nes-btn w-full mt-4!">
+        Home
+      </Link>
     </form>
   );
 }

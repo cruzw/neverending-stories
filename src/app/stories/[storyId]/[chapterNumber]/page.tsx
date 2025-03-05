@@ -40,14 +40,10 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
 
   const { contentUrl, sceneUrl } = getStoryUrls(storyId, chapterNumber);
 
-  // TODO: parallelize these requests
-  const chapterRes = await fetch(contentUrl);
-  const chapter = (await chapterRes.json()) as Chapter;
-
-  const nextChapterExists = await checkifNextChapterExists(
-    storyId,
-    chapterNumber
-  );
+  const [chapter, nextChapterExists] = await Promise.all([
+    fetch(contentUrl).then(res => res.json() as Promise<Chapter>),
+    checkifNextChapterExists(storyId, chapterNumber)
+  ]);
 
   const previousChapterExists = chapterNumber > 1;
 

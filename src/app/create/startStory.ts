@@ -28,7 +28,7 @@ export async function startStory(
   const environment = formData.get('environment')?.toString() || '';
   const imageStyle = formData.get('imageStyle')?.toString() || '';
 
-  // Create fields object to preserve user input regardless of outcome
+  // fields object to preserve user input regardless of outcome
   const fields = {
     character,
     plot,
