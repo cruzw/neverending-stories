@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { Chapter } from '@/types';
 import Link from 'next/link';
 import { cookies } from 'next/headers';
+import { notFound } from 'next/navigation';
 
 import { BLOB_BASE_URL } from '@/constants';
 import ChapterActionForms from './ChapterActionForms';
@@ -31,6 +32,14 @@ async function checkifNextChapterExists(
   return nextChapterRes.ok;
 }
 
+async function getChapter(contentUrl: string) {
+  const res = await fetch(contentUrl);
+  if (!res.ok) {
+    notFound();
+  }
+  return res.json() as Promise<Chapter>;
+}
+
 export default async function ChapterPage({ params }: ChapterPageProps) {
   const cookieStore = await cookies();
   const openAiKey = cookieStore.get('openai_key');
@@ -41,8 +50,8 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
   const { contentUrl, sceneUrl } = getStoryUrls(storyId, chapterNumber);
 
   const [chapter, nextChapterExists] = await Promise.all([
-    fetch(contentUrl).then(res => res.json() as Promise<Chapter>),
-    checkifNextChapterExists(storyId, chapterNumber)
+    getChapter(contentUrl),
+    checkifNextChapterExists(storyId, chapterNumber),
   ]);
 
   const previousChapterExists = chapterNumber > 1;
@@ -100,8 +109,6 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
             </Link>
           )
         ) : null}
-      </div>
-      <div className="flex flex-col gap-4 mt-8">
         <Link href="/" className="nes-btn">
           Home
         </Link>
