@@ -11,6 +11,7 @@ import { BLOB_BASE_URL } from '@/constants';
 import { z } from 'zod';
 import { redirect } from 'next/navigation';
 import { put } from '@vercel/blob';
+import { revalidatePath } from 'next/cache';
 
 export type NextChapterState = {
   status: 'ERROR';
@@ -172,6 +173,9 @@ export async function createNextChapter({
       message: 'An error occurred',
     };
   }
+
+  // purge cached data for existing page
+  revalidatePath(`/stories/${storyId}/${chapterNumber}`);
 
   redirect(`/stories/${storyId}/${nextChapterNumber}`);
 }
