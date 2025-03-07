@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Press_Start_2P } from 'next/font/google';
-
+import { Analytics } from '@vercel/analytics/react';
 import '@/styles/globals.css';
 
 const pressStart2p = Press_Start_2P({
@@ -25,6 +25,7 @@ export default async function RootLayout({
         <div className="mt-8 md:mt-12 max-w-screen-md mx-auto px-4">
           <main>{children}</main>
         </div>
+        <Analytics />
       </body>
     </html>
   );

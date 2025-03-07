@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.2.0",
+    "@vercel/analytics": "^1.5.0",
     "@vercel/blob": "^0.27.2",
     "ai": "^4.1.50",
     "next": "15.2.1",
