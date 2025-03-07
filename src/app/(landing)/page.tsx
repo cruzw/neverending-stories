@@ -27,6 +27,15 @@ export default async function Home() {
         </div>
       </div>
       <Stories />
+      <a
+        href="https://github.com/cruzw/neverending-stories"
+        target="_blank"
+        rel="noopener"
+        aria-label="github"
+        className="flex justify-center"
+      >
+        <i className="nes-icon github is-large" />
+      </a>
     </>
   );
 }
