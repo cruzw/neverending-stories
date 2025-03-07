@@ -28,13 +28,27 @@ export default async function Home() {
       </div>
       <Stories />
       <a
+        href="https://www.producthunt.com/posts/neverending-stories?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-neverending&#0045;stories"
+        target="_blank"
+        className="flex justify-center mt-4"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=939212&theme=light&t=1741327972853"
+          alt="Neverending&#0032;Stories - AI&#0045;generated&#0032;choose&#0045;your&#0045;own&#0045;adventure&#0032;stories&#0046; | Product Hunt"
+          style={{ width: '250px', height: '54px' }}
+          width="250"
+          height="54"
+        />
+      </a>
+      <a
         href="https://github.com/cruzw/neverending-stories"
         target="_blank"
         rel="noopener"
         aria-label="github"
         className="flex justify-center"
       >
-        <i className="nes-icon github is-large" />
+        <i className="nes-icon github is-large mt-4" />
       </a>
     </>
   );
