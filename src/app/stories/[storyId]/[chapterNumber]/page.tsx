@@ -66,6 +66,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
             <Link
               className="nes-btn is-success"
               href={`/stories/${storyId}/${chapterNumber + 1}`}
+              prefetch
             >
               Next Chapter
             </Link>
@@ -74,6 +75,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
             <Link
               className="nes-btn is-warning"
               href={`/stories/${storyId}/${chapterNumber - 1}`}
+              prefetch
             >
               Previous Chapter
             </Link>
